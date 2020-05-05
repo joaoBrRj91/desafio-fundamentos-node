@@ -1,11 +1,5 @@
 import Transaction from '../models/Transaction';
 
-interface Balance {
-  income: number;
-  outcome: number;
-  total: number;
-}
-
 class TransactionsRepository {
   private transactions: Transaction[];
 
@@ -14,15 +8,24 @@ class TransactionsRepository {
   }
 
   public all(): Transaction[] {
-    // TODO
+    return this.transactions;
   }
 
-  public getBalance(): Balance {
-    // TODO
-  }
+  /* public getBalance(): Balance {
+    const income = 3000;
+    const outcome = 1000;
+    const total = 2000;
 
-  public create(): Transaction {
-    // TODO
+    return {
+      income,
+      outcome,
+      total,
+    };
+  } */
+
+  public create(transaction: Transaction): Transaction {
+    this.transactions.push(transaction);
+    return transaction;
   }
 }
 
